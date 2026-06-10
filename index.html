@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Backbone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="app">
+    <canvas id="globe-canvas" aria-hidden="true"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">PROJECT BACKBONE</div>
+      <button class="link-btn" type="button">ИСТОЧНИКИ</button>
+    </header>
+
+    <aside class="panel panel-left">
+      <div class="panel-header">
+        <span class="diamond"></span>
+        <h2>ВЕС ОБЛАКА</h2>
+      </div>
+
+      <div class="stats-block emphasis">
+        <div class="row muted">
+          <span>ОЦЕНОЧНАЯ МАССА</span>
+          <span class="caret">▼</span>
+        </div>
+        <div class="row">
+          <span>ВСЕГО</span>
+          <b class="total">~35.4 млн т</b>
+        </div>
+      </div>
+
+      <section class="stats-group g-cables">
+        <div class="group-title">
+          <svg class="g-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8 H12 M9 5 L13 8 L9 11" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="square"/></svg>
+          ПОДВОДНЫЕ КАБЕЛИ
+        </div>
+        <div class="row"><span>КАБЕЛИ</span><b>708</b></div>
+        <div class="row"><span>ТОЧКИ ВЫХОДА</span><b>1 907</b></div>
+        <div class="row"><span>ОБЩАЯ ДЛИНА</span><b>1 912 800 км</b></div>
+        <div class="row"><span>ПРОПУСК. СПОС.</span><b>~1.3 Пбит/с</b></div>
+      </section>
+
+      <section class="stats-group g-ixp">
+        <div class="group-title">
+          <svg class="g-ico" viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,2 13,5 13,11 8,14 3,11 3,5" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+          ТОЧКИ ОБМЕНА ТРАФИКОМ
+        </div>
+        <div class="row"><span>IXP</span><b>898</b></div>
+        <div class="row"><span>ПИКОВЫЙ ТРАФИК</span><b>~150 Тбит/с</b></div>
+      </section>
+
+      <section class="stats-group g-dc">
+        <div class="group-title">
+          <svg class="g-ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="3" width="10" height="10" fill="currentColor"/></svg>
+          ДАТА-ЦЕНТРЫ
+        </div>
+        <div class="row"><span>ОБЪЕКТЫ</span><b>5 255</b></div>
+        <div class="row"><span>КОЛОКАЦИЯ</span><b>56 292</b></div>
+        <div class="row"><span>СТРАНЫ</span><b>147</b></div>
+        <div class="row"><span>ТРАФИК</span><b>~500 Тбит/с</b></div>
+      </section>
+
+      <section class="stats-group g-cdn">
+        <div class="group-title">
+          <svg class="g-ico" viewBox="0 0 16 16" aria-hidden="true"><polygon points="8,3 14,13 2,13" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
+          CDN-СЕТЬ
+        </div>
+        <div class="row"><span>УЗЛЫ</span><b>633</b></div>
+        <div class="row"><span>СТРАНЫ</span><b>97</b></div>
+        <div class="row"><span>ОЦ. ТРАФИК</span><b>~700 Тбит/с</b></div>
+      </section>
+
+      <section class="stats-group g-dns">
+        <div class="group-title">
+          <svg class="g-ico" viewBox="0 0 16 16" aria-hidden="true">
+            <line x1="3" y1="8" x2="9" y2="8" stroke="currentColor" stroke-width="1.6"/>
+            <line x1="6" y1="5" x2="6" y2="11" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="12" cy="8" r="2" stroke="currentColor" stroke-width="1.4" fill="none"/>
+          </svg>
+          DNS-ИНФРАСТРУКТУРА
+        </div>
+        <div class="row"><span>КОРНЕВЫЕ СЕРВЕРЫ</span><b>314</b></div>
+        <div class="row"><span>РЕЗОЛВЕРЫ</span><b>291</b></div>
+      </section>
+
+      <section class="stats-group g-cell">
+        <div class="group-title">
+          <svg class="g-ico" viewBox="0 0 16 16" aria-hidden="true">
+            <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.4" fill="none"/>
+            <circle cx="8" cy="8" r="2" fill="currentColor"/>
+          </svg>
+          ВЫШКИ СОТОВОЙ СВЯЗИ
+        </div>
+        <div class="row"><span>ВСЕГО ТОЧЕК</span><b>2 805 657</b></div>
+      </section>
+
+      <section class="stats-group g-sat">
+        <div class="group-title">
+          <svg class="g-ico" viewBox="0 0 16 16" aria-hidden="true">
+            <circle cx="5" cy="5" r="1.6" fill="currentColor"/>
+            <circle cx="11" cy="5" r="1.6" fill="currentColor"/>
+            <circle cx="5" cy="11" r="1.6" fill="currentColor"/>
+            <circle cx="11" cy="11" r="1.6" fill="currentColor"/>
+          </svg>
+          СПУТНИКИ (LIVE)
+        </div>
+        <div class="row"><span>STARLINK</span><b>10 364</b></div>
+        <div class="row"><span>ONEWEB</span><b>651</b></div>
+        <div class="row"><span>AMAZON LEO</span><b>299</b></div>
+        <div class="row"><span>GEO COMM</span><b>120</b></div>
+      </section>
+    </aside>
+
+    <aside class="panel panel-right">
+      <div class="panel-section">
+        <div class="panel-header">
+          <span class="diamond"></span>
+          <h2>СЛОИ КАРТЫ</h2>
+        </div>
+        <div class="toggle-row" data-layer="submarine cables"><span class="on">Подводные кабели</span><span class="switch on" data-toggle></span></div>
+        <div class="toggle-row" data-layer="data centers"><span>Дата-центры</span><span class="switch" data-toggle></span></div>
+        <div class="toggle-row" data-layer="internet exchanges"><span>Точки обмена трафиком</span><span class="switch" data-toggle></span></div>
+        <div class="toggle-row" data-layer="dns infrastructure"><span>DNS-инфраструктура</span><span class="switch" data-toggle></span></div>
+        <div class="toggle-row" data-layer="cdn edge network"><span>CDN-узлы</span><span class="switch" data-toggle></span></div>
+        <div class="toggle-row" data-layer="terrestrial fiber"><span>Наземный оптоволоконный</span><span class="switch" data-toggle></span></div>
+        <div class="toggle-row" data-layer="terrestrial backbone (est.)"><span>Наземная магистраль (оц.)</span><span class="switch" data-toggle></span></div>
+        <div class="toggle-row" data-layer="cell towers"><span>Вышки сотовой связи</span><span class="switch" data-toggle></span></div>
+      </div>
+
+      <div class="panel-section">
+        <div class="panel-header">
+          <span class="diamond"></span>
+          <h2>КОСМИЧЕСКИЙ СЛОЙ</h2>
+        </div>
+        <div class="toggle-row" data-layer="iss"><span class="on">МКС</span><span class="switch on" data-toggle></span></div>
+        <div class="toggle-row" data-layer="starlink satellites"><span>Спутники Starlink</span><span class="switch" data-toggle></span></div>
+        <div class="toggle-row" data-layer="oneweb satellites"><span>Спутники OneWeb</span><span class="switch" data-toggle></span></div>
+        <div class="toggle-row" data-layer="amazon leo"><span>Amazon LEO</span><span class="switch" data-toggle></span></div>
+        <div class="toggle-row" data-layer="geo comm satellites"><span>Спутники GEO</span><span class="switch" data-toggle></span></div>
+        <div class="toggle-row" data-layer="ground stations"><span>Наземные станции</span><span class="switch" data-toggle></span></div>
+      </div>
+
+      <div class="live-row">
+        <span class="live-dot"></span>
+        <span class="live-label">LIVE</span>
+        <span class="live-time" id="local-clock">--:--:--</span>
+      </div>
+    </aside>
+
+    <section class="hero" id="hero" role="dialog" aria-label="Приветствие">
+      <p class="hero-text">
+        Интернет не эфемерен<br />
+        и это не магия.<br />
+        <strong>Project Backbone</strong> делает его видимым.
+      </p>
+      <hr class="hero-divider" />
+      <div class="hero-actions">
+        <button class="btn primary" type="button" data-dismiss="hero">
+          НОВИЧОК?<br /><span>НАЧАТЬ ТУР</span>
+        </button>
+        <span class="hero-sep" aria-hidden="true">⏩</span>
+        <button class="btn primary" type="button" data-dismiss="hero">
+          Я ЗНАЮ,<br /><span>ЧТО ДЕЛАЮ</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="guided-tour">ОБЗОР</div>
+
+    <div class="iss-prompt">
+      <span class="iss-label">ЛЕТИМ НА МКС?</span>
+      <button class="mini-btn active" type="button">ДА</button>
+      <button class="mini-btn" type="button">НЕТ</button>
+    </div>
+  </div>
+
+  <script type="module" src="globe.js"></script>
+  <script>
+    // Локальные часы пользователя
+    const clock = document.getElementById('local-clock');
+    const pad = n => String(n).padStart(2, '0');
+    function tzLabel() {
+      const off = -new Date().getTimezoneOffset() / 60;
+      const sign = off >= 0 ? '+' : '−';
+      const abs = Math.abs(off);
+      const h = Math.trunc(abs);
+      const m = Math.round((abs - h) * 60);
+      return 'UTC' + sign + h + (m ? ':' + pad(m) : '');
+    }
+    function tick() {
+      const d = new Date();
+      clock.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())} ${tzLabel()}`;
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // Закрытие модалки
+    document.querySelectorAll('[data-dismiss]').forEach(el => {
+      el.addEventListener('click', () => {
+        const target = document.getElementById(el.dataset.dismiss);
+        if (target) target.classList.add('hidden');
+      });
+    });
+    if (location.search.includes('nohero')) {
+      document.getElementById('hero').classList.add('hidden');
+    }
+
+    // Тогглы слоёв
+    function applyToggle(row) {
+      const sw = row.querySelector('.switch');
+      const label = row.querySelector('span:first-child');
+      const on = sw.classList.contains('on');
+      label.classList.toggle('on', on);
+      const layerName = row.dataset.layer;
+      if (window.BB && layerName) window.BB.setLayer(layerName, on);
+    }
+    document.querySelectorAll('.toggle-row').forEach(row => {
+      row.addEventListener('click', () => {
+        const sw = row.querySelector('.switch');
+        sw.classList.toggle('on');
+        applyToggle(row);
+      });
+    });
+    document.addEventListener('bb-ready', () => {
+      document.querySelectorAll('.toggle-row').forEach(applyToggle);
+    });
+  </script>
+</body>
+</html>
