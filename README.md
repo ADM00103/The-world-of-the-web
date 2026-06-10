@@ -1,4 +1,8 @@
-# Project Backbone — клон
+# Project Backbone — клон https://adm00103.github.io/The-world-of-the-web/
+
+https://adm00103.github.io/The-world-of-the-web/
+https://adm00103.github.io/The-world-of-the-web/
+https://adm00103.github.io/The-world-of-the-web/
 
 Визуальный клон [project-backbone-fai.vercel.app](https://project-backbone-fai.vercel.app/) на чистом HTML/CSS/JS + Three.js (через ESM с CDN).
 
